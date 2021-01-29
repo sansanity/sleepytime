@@ -2,27 +2,35 @@ import datetime
 import time
 from datetime import datetime, timedelta
 
-def wake_time(inp):
-    pass
+
+one_cycle = timedelta(hours = 1, minutes = 30)
 
 
+def wake_time():
+    while True:
+        try:
+            time = datetime.strptime(input("Specify your wake time in HH:MM format: "), "%H:%M")
+    
+
+def fall_asleep_time():
+    while True:
+        try:
+            time = datetime.strptime(str(input("Specify your sleep time in HH:MM format: ")), "%H:%M")
+            for i in range(1,7):
+                print(f"In order to obtain {i} sleep cycle's worth of sleep, set your alarm at {time + one_cycle * i}")
+        except:
+            raise Exception("Please enter according to the given format HH:MM: ")
 
 
-hours_cycle = 1
-minutes_cycle = 30
+def fall_asleep_now():
+    time = datetime.now()
+    for i in range(1,7):
+        print(f"In order to obtain one sleep cycle's worth of sleep, set your alarm at {time + one_cycle * i}")
 
-while True:
-    test = input("Enter a time in HH:MM format here:")
 
-    try:
-        hour, minute = [int(i) for i in test.split(":")]
-        delta = timedelta(hours = hour, minutes = minute)
-        print("Success!")
-        print(delta)
-    except:
-        continue
+# Remove year from the timedelta output
 
-# Find some way to make the time input stricter
+
 
 
 # while True:
